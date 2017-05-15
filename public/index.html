@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React Webpack</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="main.js"></script>	
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+    <div id="root">
+	<h1>URL Shortner</h1>
+        <input type="text" class="form-control" id="url"></input>
+        <input style="margin-top: 10px;margin-left: 40%;" class="btn btn-primary" type="submit" onclick="getURL();" name="Submit" value="Shorten URL"></input>
+	<div style="margin-top: 30px;" class="card">
+ 	 	<div id="result" class="card-block">
+        	</div>
+	</div>
+	<hr>
+	<form id="editForm">
+	  <div class="form-group">
+	    <label for="urlstr">Original URL</label>
+	    <input type="email" class="form-control" id="urlstr" aria-describedby="emailHelp" placeholder="" value="" disabled>
+            <span id="urlid"></span>
+	  </div>
+	  <div class="form-group">
+	    <label for="tinyurlstr">TinyURL</label>
+	    http://localhost:3000/<input type="input" class="form-control" id="tinyurlstr">
+	  </div>
+	  <button type="submit" class="btn btn-primary" onclick="editURL();">Submit</button>
+	</form>
+    </div>
+</body>
+</html>
