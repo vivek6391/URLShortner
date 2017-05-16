@@ -100,15 +100,17 @@ $.ajax({
     type: 'GET',
     contentType: 'application/json',
     success: function(result) {
-	var html = '<table class="table table-bordered table-striped"><thead><tr><td>URL</td><td>TinyURL</td><td>Action</td></tr></thead><tbody>';
-	for (var i = 0, len = result.length; i < len; ++i) {
-	    dataStore[result[i].id] = result[i];
-	    html += '<tr><td>'+ result[i].urlstr + '</td><td> <a href="'+ result[i].tinyurlstr +'" target="_blank">'+ result[i].tinyurlstr + '</a></td>' 
-	    html += '<td><span class="glyphicon glyphicon-trash" onclick="deleteAssociation('+ result[i].id +');"></span>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil" onclick="editAssociation('+ result[i].id  + ');"></span></td></tr>';
+	if (result.length != 0) { 
+		var html = '<table class="table table-bordered table-striped"><thead><tr><td>URL</td><td>TinyURL</td><td>Action</td></tr></thead><tbody>';
+		for (var i = 0, len = result.length; i < len; ++i) {
+		    dataStore[result[i].id] = result[i];
+		    html += '<tr><td>'+ result[i].urlstr + '</td><td> <a href="'+ result[i].tinyurlstr +'" target="_blank">'+ result[i].tinyurlstr + '</a></td>' 
+		    html += '<td><span style="cursor: pointer;" class="glyphicon glyphicon-trash" onclick="deleteAssociation('+ result[i].id +');"></span>&nbsp;&nbsp;&nbsp;<span style="cursor: pointer;" class="glyphicon glyphicon-pencil" onclick="editAssociation('+ result[i].id  + ');"></span></td></tr>';
+		}
+		html += '</tbody></table>';
+		$('#editForm').hide();
+		$(html).appendTo('#result');
 	}
-	html += '</tbody></table>';
-	$('#editForm').hide();
-	$(html).appendTo('#result');
 	// Do something with the result
     }
 });
