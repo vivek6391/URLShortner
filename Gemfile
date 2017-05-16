@@ -16,7 +16,7 @@ end
 group :development do
 	gem 'mysql2', '>= 0.3.18', '< 0.5'
 end
-gem 'mysql2', '>= 0.3.18', '< 0.5'
+#gem 'mysql2', '>= 0.3.18', '< 0.5'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
