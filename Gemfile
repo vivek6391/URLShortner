@@ -10,12 +10,12 @@ end
 gem 'rails', '~> 5.0.2'
 # Use mysql as the database for Active Record
 
-#group :production do
-#	gem 'pg'
-#end
-#group :development do
-#	gem 'mysql2', '>= 0.3.18', '< 0.5'
-#end
+group :production do
+	gem 'pg'
+end
+group :development do
+	gem 'mysql2', '>= 0.3.18', '< 0.5'
+end
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 
 # Use Puma as the app server
