@@ -16,13 +16,13 @@ class UrlsController < ApplicationController
   # POST /urls
   def create
     @url = Url.new(url_params)
-    tinyurl = "http://localhost:3000/"+generate_code(10)
+    tinyurl = "https://urlshortv.herokuapp.com/"+generate_code(10)
     @url.tinyurlstr = tinyurl     
     if Url.exists?(urlstr: @url.urlstr)
         render json: @url.errors, status: :unprocessable_entity
     else
        while Url.exists?(tinyurlstr: @url.tinyurlstr)
-	 tinyurl = "http://localhost:3000/"+generate_code(10)
+	 tinyurl = "https://urlshortv.herokuapp.com/"+generate_code(10)
     	 @url.tinyurlstr = tinyurl
        end
        puts 'create outside loop' 
@@ -54,7 +54,7 @@ class UrlsController < ApplicationController
   end
 
   def go
-    desturl = "http://localhost:3000/" + params[:path]
+    desturl = "https://urlshortv.herokuapp.com/" + params[:path]
     puts desturl	
     @url = Url.find_by_tinyurlstr!(desturl)
     redirect_to @url.urlstr

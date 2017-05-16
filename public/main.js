@@ -3,7 +3,7 @@ var url = $('#url').val();
 var result = {};
 result['urlstr'] = url;
 $.ajax({
-    url: 'http://localhost:3000/urls',
+    url: 'https://urlshortv.herokuapp.com/urls',
     type: 'POST',
     crossDomain: true,
     dataType: 'json',
@@ -27,7 +27,7 @@ var dataStore = {};
 function deleteAssociation(id) {
 if (confirm("Are you sure you want to delete?")) {
 	$.ajax({
-	    url: 'http://localhost:3000/urls/'+id,
+	    url: 'https://urlshortv.herokuapp.com/urls/'+id,
 	    type: 'DELETE',
 	    success: function(result) {
 		init();
@@ -55,7 +55,7 @@ function editAssociation(id) {
 
 function editURL() {
 var url = $('#urlstr').val();
-var urlstr = 'http://localhost:3000/' + $('#tinyurlstr').val();
+var urlstr = 'https://urlshortv.herokuapp.com/' + $('#tinyurlstr').val();
 var id = parseInt($('#urlid').text());
 
 var result = {};
@@ -64,7 +64,7 @@ result['id'] = id;
 result['tinyurlstr'] = urlstr;
 
 $.ajax({
-    url: 'http://localhost:3000/urls/'+id,
+    url: 'https://urlshortv.herokuapp.com/urls/'+id,
     type: 'PUT',
     crossDomain: true,
     dataType: 'json',
@@ -96,7 +96,7 @@ function init () {
 $('#result').html('');
 dataStore = {};
 $.ajax({
-    url: 'http://localhost:3000/urls',
+    url: 'https://urlshortv.herokuapp.com/urls',
     type: 'GET',
     contentType: 'application/json',
     success: function(result) {
